@@ -76,25 +76,22 @@ char	*chop(char *str)
 
 	if (str == NULL)
 		return (NULL);
-//	else
-//	{
-		if ((pos_to_chop = search_n(str)) < 0)
-			pos_to_chop = ft_strlen(str);
-		if (pos_to_chop >= 0 && str[pos_to_chop] == '\n')
-		{
-			temp = malloc(pos_to_chop + 2);
-			ft_strlcpy(temp, str, pos_to_chop + 2);
-			ft_strlcpy(str, (str + pos_to_chop + 1), ft_strlen(str) - pos_to_chop);
-			return (temp);
-		}
-		if (pos_to_chop >= 0 && str[pos_to_chop] == 0)
-		{
-			temp = malloc(pos_to_chop + 1);
-			ft_strlcpy(temp, str, pos_to_chop + 1);
-			str[0] = 0;
-			return (temp);
-		}
-//	}
+	if ((pos_to_chop = search_n(str)) < 0)
+		pos_to_chop = ft_strlen(str);
+	if (pos_to_chop >= 0 && str[pos_to_chop] == '\n')
+	{
+		temp = malloc(pos_to_chop + 2);
+		ft_strlcpy(temp, str, pos_to_chop + 2);
+		ft_strlcpy(str, (str + pos_to_chop + 1), ft_strlen(str) - pos_to_chop);
+		return (temp);
+	}
+	if (pos_to_chop >= 0 && str[pos_to_chop] == 0)
+	{
+		temp = malloc(pos_to_chop + 1);
+		ft_strlcpy(temp, str, pos_to_chop + 1);
+		str[0] = 0;
+		return (temp);
+	}
 	return (NULL);
 }
 
